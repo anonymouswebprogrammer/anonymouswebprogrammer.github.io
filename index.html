@@ -593,7 +593,7 @@
           var self = this;
 
           this.events.forEach(function(ev) {
-            ev.date =  self.current.clone().date(Math.random() * (29 - 1) + 1);
+            ev.date = moment(ev.eventTime, "YYYY-MM-DD");
           });
 
 
@@ -862,90 +862,100 @@
       }();
 
       ! function() {
-        var data = [{
-            eventName: 'Lunch Meeting w/ Mark',
-            calendar: 'Work',
-            color: 'orange'
-          },
+        var data = [
           {
-            eventName: 'Interview - Jr. Web Developer',
-            calendar: 'Work',
-            color: 'orange'
+            eventName: 'Lecture: Introduction',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-11-15")
           },
-          {
-            eventName: 'Demo New App to the Board',
-            calendar: 'Work',
-            color: 'orange'
+                    {
+            eventName: 'Lecture: Design & Evaluation Methods',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-11-18")
+          },          {
+            eventName: 'Lecture: Cognition & Decision Making',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-11-22")
+          },          {
+            eventName: 'Q&A Assignment 1',
+            calendar: 'Q&A',
+            color: 'yellow',
+            eventTime: moment("2022-11-25")
+          },          {
+            eventName: 'Lecture: Displays',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-11-29")
+          },          {
+            eventName: 'Lecture: Affective Interaction',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-12-02")
+          },         {
+            eventName: 'Lecture: Control and Automation',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-12-06")
+          },                {
+            eventName: 'Lecture: Human-Computer Interaction',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-12-09")
+          },                {
+            eventName: 'Feedback Assignment 1 & Introduction Assignment 2',
+            calendar: 'Q&A',
+            color: 'yellow',
+            eventTime: moment("2022-12-13")
           },
-          {
-            eventName: 'Dinner w/ Marketing',
-            calendar: 'Work',
-            color: 'orange'
-          },
-
-          {
-            eventName: 'Game vs Portalnd',
-            calendar: 'Sports',
-            color: 'blue'
-          },
-          {
-            eventName: 'Game vs Houston',
-            calendar: 'Sports',
-            color: 'blue'
-          },
-          {
-            eventName: 'Game vs Denver',
-            calendar: 'Sports',
-            color: 'blue'
-          },
-          {
-            eventName: 'Game vs San Degio',
-            calendar: 'Sports',
-            color: 'blue'
-          },
-
-          {
-            eventName: 'School Play',
-            calendar: 'Kids',
-            color: 'yellow'
-          },
-          {
-            eventName: 'Parent/Teacher Conference',
-            calendar: 'Kids',
-            color: 'yellow'
-          },
-          {
-            eventName: 'Pick up from Soccer Practice',
-            calendar: 'Kids',
-            color: 'yellow'
-          },
-          {
-            eventName: 'Ice Cream Night',
-            calendar: 'Kids',
-            color: 'yellow'
-          },
-
-          {
-            eventName: 'Free Tamale Night',
-            calendar: 'Other',
-            color: 'green'
-          },
-          {
-            eventName: 'Bowling Team',
-            calendar: 'Other',
-            color: 'green'
-          },
-          {
-            eventName: 'Teach Kids to Code',
-            calendar: 'Other',
-            color: 'green'
-          },
-          {
-            eventName: 'Startup Weekend',
-            calendar: 'Other',
+                       {
+            eventName: 'Lecture: Stress and Workload',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-12-16")
+          },{
+            eventName: 'Lecture: Safety, Accidents, and Errors',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2022-12-20")
+          },{
+            eventName: 'Feedback Assignment 1 & Introduction Assignment 2',
+            calendar: 'Q&A',
+            color: 'yellow',
+            eventTime: moment("2022-12-13")
+          },{
+            eventName: 'Lecture: Social Robotics & Ethics',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2023-01-10")
+          },{
+            eventName: 'Lecture: Universal & Inclusive Design',
+            calendar: 'Lecture',
+            color: 'blue',
+            eventTime: moment("2023-01-13")
+          },{
+            eventName: 'Work on Video Pitch in Small Groups',
+            calendar: 'Group-Work',
             color: 'green',
-            date: '11334455'
-          }
+            eventTime: moment("2023-01-17")
+          },{
+            eventName: 'Deadline Video Pitch Business Proposals',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2023-01-23")
+          },{
+            eventName: 'Final Exam',
+            calendar: 'Exams',
+            color: 'red',
+            eventTime: moment("2023-02-01")
+          },{
+            eventName: 'Resit Final Exam',
+            calendar: 'Exams',
+            color: 'red',
+            eventTime: moment("2023-04-14")
+          },
         ];
 
 
