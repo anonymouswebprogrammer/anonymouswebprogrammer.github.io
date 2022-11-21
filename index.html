@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+
 <style>
 *, *:before, *:after {
 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -13,7 +15,7 @@ body {
  color: rgba(255, 255, 255, 1);
  margin: 0;
  padding: 0;
- background: #4A4A4A;
+ background: #rgba(0, 0, 0, 1);
  -webkit-touch-callout: none;
  -webkit-user-select: none;
  -khtml-user-select: none;
@@ -26,15 +28,15 @@ body {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  width: 420px;
+  width: 400px;
   margin: 0 auto;
-  height: 570px;
+  height: 550px;
   overflow: hidden;
 }
 
 .header {
   height: 50px;
-  width: 420px;
+  width: 400px;
   background: rgba(66, 66, 66, 1);
   text-align: center;
   position:relative;
@@ -116,7 +118,7 @@ body {
 
 .day {
   display: inline-block;
-  width: 60px;
+  width: 55px;
   padding: 10px;
   text-align: center;
   vertical-align: top;
@@ -390,7 +392,6 @@ body {
 </head>
 <body>
 <div id='calendar'></div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 
 <script>
 !function() {
