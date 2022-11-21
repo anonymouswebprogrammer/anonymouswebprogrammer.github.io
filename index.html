@@ -51,7 +51,7 @@
         position: relative;
         z-index: 100;
       }
-      
+
       .bold {
         font-weight: 800;
       }
@@ -333,6 +333,10 @@
 
       .entry.yellow:after {
         background: rgba(249, 233, 0, 1);
+      }
+      
+      .offset{
+        margin-left: 15px;
       }
 
       /* Animations are cool!  */
@@ -784,14 +788,11 @@
             var div = createElement('div', 'event');
             var square = createElement('div', 'event-category ' + ev.color);
             var span = createElement('span', 'bold', ev.eventName);
-            var details = createElement('span', '', ev.eventDetails);
-            var readings = createElement('span', '', ' | '+ ev.readings);
-
+            var details = createElement('div', 'offset', ev.eventDetails + ' | ' + ev.readings);
 
             div.appendChild(square);
             div.appendChild(span);
             div.appendChild(details);
-            div.appendChild(readings);
             wrapper.appendChild(div);
           });
 
@@ -870,8 +871,7 @@
       }();
 
       ! function() {
-        var data = [
-          {
+        var data = [{
             eventName: 'Lecture: Introduction',
             calendar: 'Lecture',
             color: 'blue',
@@ -879,117 +879,127 @@
             eventDetails: '10:45-12:30 (Lakens)',
             readings: 'Readings: Chapter 1'
           },
-                    {
+          {
             eventName: 'Lecture: Design & Evaluation Methods',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-11-18"),
             eventDetails: '13:30-15:15 (Perugia)',
             readings: 'Chapter 2 & 3 (up to 3.2.4)'
-          },          {
+          }, {
             eventName: 'Lecture: Cognition & Decision Making',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-11-22"),
             eventDetails: '10:45-12:30 (Lakens)',
             readings: 'Chapter 6 & 7'
-          },          {
+          }, {
             eventName: 'Q&A Assignment 1',
             calendar: 'Q&A',
             color: 'yellow',
             eventTime: moment("2022-11-25"),
             eventDetails: '13:30-15:15 (Cristia)',
-            
-          },          {
+            readings: ''
+
+          }, {
             eventName: 'Lecture: Displays',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-11-29"),
             eventDetails: '10:45-12:30 (Lakens)',
             readings: 'Chapter 8'
-          },          {
+          }, {
             eventName: 'Lecture: Affective Interaction',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-02"),
             eventDetails: '13:30-15:15 (Perugia)',
             readings: 'Lottridge, 2011'
-          },         {
+          }, {
             eventName: 'Lecture: Control and Automation',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-06"),
             eventDetails: '10:45-12:30 (Lakens)',
             readings: 'Chapter 9 & 11'
-          },                {
+          }, {
             eventName: 'Lecture: Human-Computer Interaction',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-09"),
             eventDetails: '13:30-15:15 (Perugia)',
             readings: 'Chapter 10'
-          },                {
+          }, {
             eventName: 'Feedback Assignment 1 & Introduction Assignment 2',
             calendar: 'Q&A',
             color: 'yellow',
             eventTime: moment("2022-12-13"),
-            eventDetails: '10:45-12:30 (Cristea)'
+            eventDetails: '10:45-12:30 (Cristea)',
+            readings: ''
           },
-                       {
+          {
             eventName: 'Lecture: Stress and Workload',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-16"),
             eventDetails: '13:30-15:15 (Lakens)',
             readings: 'Chapter 15'
-          },{
+          }, {
             eventName: 'Lecture: Safety, Accidents, and Errors',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-20"),
             eventDetails: '10:45-12:30 (Lakens)',
             readings: 'Chapter 16'
-          },{
+          }, {
             eventName: 'Lecture: Social Robotics & Ethics',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2023-01-10"),
             eventDetails: '10:45-12:30 (Perugia)',
             readings: 'Readings: See Schedule'
-          },{
+          }, {
             eventName: 'Lecture: Universal & Inclusive Design',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2023-01-13"),
             eventDetails: '13:30-15:15 (Perugia)',
             readings: 'Readings: See Schedule'
-          },{
+          }, {
             eventName: 'Work on Video Pitch in Small Groups',
             calendar: 'Group-Work',
             color: 'green',
-            eventTime: moment("2023-01-17")
-          },{
+            eventTime: moment("2023-01-17"),
+            eventDetails: '',
+            readings: ''
+          }, {
             eventName: 'Deadline Video Pitch Business Proposals',
             calendar: 'Deadlines',
             color: 'orange',
-            eventTime: moment("2023-01-23")
-          },{
+            eventTime: moment("2023-01-23"),
+            eventDetails: '',
+            readings: ''
+          }, {
             eventName: 'Final Exam',
             calendar: 'Exams',
             color: 'red',
-            eventTime: moment("2023-02-01")
-          },{
+            eventTime: moment("2023-02-01"),
+            eventDetails: '',
+            readings: ''
+          }, {
             eventName: 'Resit Final Exam',
             calendar: 'Exams',
             color: 'red',
-            eventTime: moment("2023-04-14")
+            eventTime: moment("2023-04-14"),
+            eventDetails: '',
+            readings: ''
           },
         ];
 
 
 
         function addDate(ev) {
-        
+
         }
 
         var calendar = new Calendar('#calendar', data);
