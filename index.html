@@ -19,7 +19,6 @@
       }
 
       body {
-        overflow: hidden;
         font-family: "Lato" !important;
         font-weight: 500;
         color: #707070;
@@ -544,11 +543,49 @@
         }
       }
 
+      #todolist {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        width: 400px;
+        margin: 0 auto;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .todoHeader {
+        height: 50px;
+        width: 400px;
+        color: #C81919;
+        background: #rgba(0, 0, 0, 1);
+        text-align: center;
+        position: relative;
+        z-index: 100;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        line-height: 50px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      
+      .todolist{
+        width: 100%;
+        background-color: gray;
+      }
     </style>
   </head>
 
   <body>
     <div id='calendar'></div>
+    <div id='todolist'>
+      <div class="todoHeader">
+      Upcoming activities
+      </div>
+      <div class="todolist">
+      
+      </div>
+    </div>
 
     <script>
       ! function() {
