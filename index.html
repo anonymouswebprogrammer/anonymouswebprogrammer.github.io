@@ -702,7 +702,7 @@
         for(i=0; i<data.length; ++i){
         var todoItem = document.createElement('div');
         todoItem.className = 'todoItem';
-        todoItem.innerHTML= '<div class="todoName bold"><a href='+data[i].URL+'>' + data[i].eventName + ' (' + data[i].readings + ')</a></div><div class="todoName">'+data[i].eventDetails+' , '+data[i].eventTime+'</div>'     
+        todoItem.innerHTML= '<div class="todoName bold"><a href='+data[i].URL+' target="_blank">' + data[i].eventName + ' (' + data[i].readings + ')</a></div><div class="todoName">'+data[i].eventDetails+' , '+data[i].eventTime+'</div>'     
         todolist.appendChild(todoItem);
         }
         
