@@ -31,6 +31,7 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        text-align: center;
       }
 
       #calendar {
@@ -543,7 +544,7 @@
         }
       }
 
-      #todolist {
+      .todolist {
         -webkit-transform: translate3d(0, 0, 0);
         -moz-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -569,7 +570,7 @@
         letter-spacing: 1px;
       }
       
-      .todolist{
+      #todolist{
         width: 100%;
         background-color: gray;
       }
@@ -578,16 +579,93 @@
 
   <body>
     <div id='calendar'></div>
-    <div id='todolist'>
+    <div class='todolist'>
       <div class="todoHeader">
       Upcoming activities
       </div>
-      <div class="todolist">
-      
+      <div id="todolist">
       </div>
     </div>
 
     <script>
+    fillToDo();
+    function fillToDo(){
+            var data = [{
+            eventName: 'Work on Video Pitch in Small Groups',
+            calendar: 'Group-Work',
+            color: 'green',
+            eventTime: moment("2023-01-17"),
+            eventDetails: '',
+            readings: '',
+            attachment: 'mode_edit'
+          }, {
+            eventName: 'Deadline Video Pitch Business Proposals',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2023-01-23"),
+            eventDetails: '',
+            readings: '',
+            attachment: 'description'
+          },{
+            eventName: 'Hand in Assignment 1.2',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2022-12-11"),
+            eventDetails: 'Due at 23:59',
+            readings: '30 Pts',
+            attachment: 'description'
+          },{
+            eventName: 'Hand in Assignment 2.1',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2023-01-11"),
+            eventDetails: 'Due at 23:59',
+            readings: '115 Pts',
+            attachment: 'description'
+          },{
+            eventName: 'Video Pitch Assignment 2.2',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2023-01-20"),
+            eventDetails: 'Due at 23:59',
+            readings: '40 Pts',
+            attachment: 'description'
+          },{
+            eventName: 'Hand in Assignment 1.1',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2022-11-20"),
+            eventDetails: 'Due at 23:59',
+            readings: '30 Pts (each)',
+            attachment: 'description'
+          }, {
+            eventName: 'Final Exam',
+            calendar: 'Exams',
+            color: 'red',
+            eventTime: moment("2023-02-01"),
+            eventDetails: '',
+            readings: '',
+            attachment: 'mode_edit'
+
+          }, {
+            eventName: 'Resit Final Exam',
+            calendar: 'Exams',
+            color: 'red',
+            eventTime: moment("2023-04-14"),
+            eventDetails: '',
+            readings: '',
+            attachment: 'mode_edit'
+          }
+        ];
+        var todolist=document.getElementById("todolist");
+        for(i=0; i<data.length; ++i){
+        var todoItem = document.createElement('div');
+        todoItem.innerHTML=data[i].eventName;
+        todolist.appendChild(todoItem);
+        }
+        
+        }
+        
       ! function() {
 
         var today = moment();
