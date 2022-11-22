@@ -615,6 +615,12 @@
         width: 100%;
         text-align: left;
       }
+      a {
+        all: unset;
+      }
+      a:hover{
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -625,14 +631,6 @@
       Upcoming activities
       </div>
       <div id="todolist">
-      <div class="todoItem">
-        <div class="todoName bold">
-        todoName
-        </div>
-        <div class="todoName">
-        date
-        </div>
-      </div>
       </div>
     </div>
 
@@ -652,26 +650,31 @@
             eventTime: moment("2023-01-23"),
             eventDetails: '',
             readings: '',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90826'
           },{
             eventName: 'Hand in Assignment 1.2',
             eventTime: moment("2022-12-11"),
             eventDetails: 'Due at 23:59',
             readings: '30 Pts',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90824'
           },{
             eventName: 'Hand in Assignment 2.1',
             eventTime: moment("2023-01-11"),
             eventDetails: 'Due at 23:59',
             readings: '115 Pts',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90825'
           },{
             eventName: 'Video Pitch Assignment 2.2',
             eventTime: moment("2023-01-20"),
             eventDetails: 'Due at 23:59',
             readings: '40 Pts',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90826'
           },{
             eventName: 'Hand in Assignment 1.1',
             eventTime: moment("2022-11-20"),
             eventDetails: 'Due at 23:59',
             readings: '30 Pts (each)',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90821'
           }, {
             eventName: 'Final Exam',
             eventTime: moment("2023-02-01"),
@@ -689,7 +692,7 @@
         for(i=0; i<data.length; ++i){
         var todoItem = document.createElement('div');
         todoItem.className = 'todoItem';
-        todoItem.innerHTML= '<div class="todoName bold">' + data[i].eventName + '</div><div class="todoName">'+data[i].eventTime+'</div>'     
+        todoItem.innerHTML= '<div class="todoName bold"><a href='+data[i].URL+'>' + data[i].eventName + ' (' + data[i].readings + ')</a></div><div class="todoName">'+data[i].eventDetails+' , '+data[i].eventTime+'</div>'     
         todolist.appendChild(todoItem);
         }
         
