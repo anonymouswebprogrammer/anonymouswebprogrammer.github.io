@@ -60,6 +60,10 @@
         font-weight: 800;
       }
       
+      .italic{
+        font-style: italic;
+      }
+      
       .attachment{
         font-size: 20px;
         position: fixed;
@@ -634,7 +638,7 @@
     <div id='calendar'></div>
     <div class='todolist'>
       <div class="todoHeader">
-      Upcoming activities
+      Upcoming deadlines
       </div>
       <div id="todolist">
       </div>
@@ -965,7 +969,7 @@
 
           if (!events.length) {
             var div = createElement('div', 'event empty');
-            var span = createElement('span', '', 'No Events');
+            var span = createElement('span', 'italic', 'No events planned this day');
 
             div.appendChild(span);
             wrapper.appendChild(div);
