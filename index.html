@@ -32,7 +32,7 @@
         -ms-user-select: none;
         user-select: none;
         text-align: center;
-        overflow: hidden;
+        /*overflow: hidden;*/
       }
 
       #calendar {
@@ -59,12 +59,12 @@
       .bold {
         font-weight: 800;
       }
-      
-      .italic{
+
+      .italic {
         font-style: italic;
       }
-      
-      .attachment{
+
+      .attachment {
         font-size: 20px;
         position: fixed;
         margin-left: 5px;
@@ -352,8 +352,8 @@
       .entry.yellow:after {
         background: rgba(249, 233, 0, 1);
       }
-      
-      .offset{
+
+      .offset {
         margin-left: 15px;
       }
 
@@ -576,61 +576,92 @@
         font-weight: 700;
         letter-spacing: 1px;
       }
-      
-      #todolist{
+
+      #todolist {
         height: 200px;
         width: 100%;
-        overflow: overlay;
-          -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 82%);
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 82%);
       }
       
+      #todolist:hover{
+        overflow: overlay;
+      }
 
-      
+
+
       /* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+      ::-webkit-scrollbar {
+        display: none;
+        width: 10px;
+      }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: white;
-}
+      /* Track */
+      ::-webkit-scrollbar-track {
+      }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #E8E8E8;
-    border-radius: 5px;
-   
-}
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #E8E8E8;
+        border-radius: 5px;
+      }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #D5D5D5;
-    border-radius: 5px;
-}
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #D5D5D5;
+        border-radius: 5px;
+      }
 
-      .todoItem{
+      .todoItem {
         width: 100%;
-        height: 50px;
-        padding: 7px;
-        margin-bottom: 10px;
+        height: 60px;
+        padding: 13px;
+        margin-bottom: 7px;
         font-size: 16;
         background-color: #F7F7F7;
+        border-radius: 10px;
       }
       
-      .todoName{
-        float: left;
-        width: 100%;
-        font-size: 14px;
-        text-align: left;
+      .todoItem:hover{
+        background-color: #EBEBEB;
+          box-shadow: inset 0 0 10px #E3E3E3;
       }
+
+      .todoName {
+        font-size: 14px;
+      }
+      
+      .icon {
+        font-size: 25px;
+        opacity: 0.7;
+      }
+      
+      .leftCol{
+        width: 20px;
+        margin-top: 5px;
+      }
+      
+      .rightCol{
+        text-align: left;
+        margin-top: -32px;
+        margin-left: 40px;
+      }
+      
+      .container{
+        width: 100%;
+        display: inline-block;
+      }
+      
+
       a {
         all: unset;
       }
-      a:hover{
+
+      a:hover {
         cursor: pointer;
       }
+
     </style>
   </head>
 
@@ -638,76 +669,88 @@
     <div id='calendar'></div>
     <div class='todolist'>
       <div class="todoHeader">
-      Upcoming deadlines
+        Upcoming deadlines
       </div>
       <div id="todolist">
       </div>
     </div>
 
     <script>
-    fillToDo();
-    function fillToDo(){
-            var data = [{
-            eventName: 'Work on Video Pitch in Small Groups',
-            calendar: 'Group-Work',
-            color: 'green',
-            eventTime: moment("2023-01-17"),
-            eventDetails: '',
-            readings: '',
-            attachment: 'mode_edit'
-          }, {
-            eventName: 'Deadline Video Pitch Business Proposals',
-            eventTime: moment("2023-01-23"),
-            eventDetails: '',
-            readings: '',
-            URL: 'https://canvas.tue.nl/courses/22364/assignments/90826'
-          },{
+      fillToDo();
+
+      function fillToDo() {
+        {
+          var data = [{
             eventName: 'Hand in Assignment 1.2',
             eventTime: moment("2022-12-11"),
             eventDetails: 'Due at 23:59',
             readings: '30 Pts',
-            URL: 'https://canvas.tue.nl/courses/22364/assignments/90824'
-          },{
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90824', 
+            icon: 'description'
+          }, {
             eventName: 'Hand in Assignment 2.1',
             eventTime: moment("2023-01-11"),
             eventDetails: 'Due at 23:59',
             readings: '115 Pts',
-            URL: 'https://canvas.tue.nl/courses/22364/assignments/90825'
-          },{
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90825',
+            icon: 'description'
+          }, {
             eventName: 'Video Pitch Assignment 2.2',
             eventTime: moment("2023-01-20"),
             eventDetails: 'Due at 23:59',
             readings: '40 Pts',
-            URL: 'https://canvas.tue.nl/courses/22364/assignments/90826'
-          },{
-            eventName: 'Hand in Assignment 1.1',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90826',
+            icon: 'description'
+          }, {
+            eventName: 'Hand in Assignment 1.1 - Example 1',
             eventTime: moment("2022-11-20"),
             eventDetails: 'Due at 23:59',
-            readings: '30 Pts (each)',
-            URL: 'https://canvas.tue.nl/courses/22364/assignments/90821'
+            readings: '30 Pts',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90821',
+            icon: 'description'
+          }, {
+            eventName: 'Hand in Assignment 1.1 - Example 2',
+            eventTime: moment("2022-11-20"),
+            eventDetails: 'Due at 23:59',
+            readings: '30 Pts',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90821',
+            icon: 'description'
+          }, {
+            eventName: 'Hand in Assignment 1.1 - Example 3',
+            eventTime: moment("2022-11-20"),
+            eventDetails: 'Due at 23:59',
+            readings: '30 Pts',
+            URL: 'https://canvas.tue.nl/courses/22364/assignments/90821',
+            icon: 'description'
           }, {
             eventName: 'Final Exam',
             eventTime: moment("2023-02-01"),
-            eventDetails: '',
-            readings: '',
+            eventDetails: '09:00 - 13:00 (TBA)',
+            readings: '60% of Final Grade',
+            icon: 'create'
 
           }, {
             eventName: 'Resit Final Exam',
             eventTime: moment("2023-04-14"),
-            eventDetails: '',
-            readings: '',
+            eventDetails: '09:00 - 13:00 (TBA)',
+            readings: '60% of Final Grade',
+            icon: 'create'
+          }];
+        }
+        var today = moment();
+        console.log(today);
+        var todolist = document.getElementById("todolist");
+        for (i = 0; i < data.length; ++i) {
+          if (moment(data[i].eventTime) > today) {
+            var todoItem = document.createElement('div');
+            todoItem.className = 'todoItem';
+            todoItem.innerHTML = '<a href=' + data[i].URL + ' target="_blank"><div class="container"><div class="leftCol"><i class="material-icons icon">'+data[i].icon+'</i></div><div class="rightCol"><div class="todoName"><span class="bold">' + data[i].eventName + '</span><span> | ' + moment(data[i].eventTime).format('DD MMM, YYYY') + '</span></div><div class="todoName"><span class>' + data[i].eventDetails + '</span><span class="italic"> ( ' + data[i].readings + ' )</div></div></div></a>'
+            todolist.appendChild(todoItem);
           }
-        ];
-        var todolist=document.getElementById("todolist");
-        for(i=0; i<data.length; ++i){
-        var todoItem = document.createElement('div');
-        todoItem.className = 'todoItem';
-        todoItem.innerHTML= '<div class="todoName bold"><a href='+data[i].URL+' target="_blank">' + data[i].eventName + ' (' + data[i].readings + ')</a></div><div class="todoName">'+data[i].eventDetails+' , '+data[i].eventTime+'</div>'     
-        todolist.appendChild(todoItem);
         }
-        
-        }
-        
+
+      }
+
       ! function() {
 
         var today = moment();
@@ -959,7 +1002,7 @@
             var icon = createElement('i', 'material-icons', ev.attachment);
             icon.classList.add('attachment');
             var details = createElement('div', 'offset', ev.eventDetails + ' | ' + ev.readings);
-            
+
             div.appendChild(square);
             div.appendChild(span);
             div.appendChild(icon);
@@ -1164,7 +1207,7 @@
             eventDetails: '',
             readings: '',
             attachment: 'description'
-          },{
+          }, {
             eventName: 'Hand in Assignment 1.2',
             calendar: 'Deadlines',
             color: 'orange',
@@ -1172,7 +1215,7 @@
             eventDetails: 'Due at 23:59',
             readings: '30 Pts',
             attachment: 'description'
-          },{
+          }, {
             eventName: 'Hand in Assignment 2.1',
             calendar: 'Deadlines',
             color: 'orange',
@@ -1180,7 +1223,7 @@
             eventDetails: 'Due at 23:59',
             readings: '115 Pts',
             attachment: 'description'
-          },{
+          }, {
             eventName: 'Video Pitch Assignment 2.2',
             calendar: 'Deadlines',
             color: 'orange',
@@ -1188,7 +1231,7 @@
             eventDetails: 'Due at 23:59',
             readings: '40 Pts',
             attachment: 'description'
-          },{
+          }, {
             eventName: 'Hand in Assignment 1.1',
             calendar: 'Deadlines',
             color: 'orange',
