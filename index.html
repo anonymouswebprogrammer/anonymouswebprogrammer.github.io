@@ -6,6 +6,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 
     <style>
       *,
@@ -54,6 +56,15 @@
 
       .bold {
         font-weight: 800;
+      }
+      
+      .attachment{
+        font-size: 20px;
+        position: fixed;
+        margin-left: 5px;
+        margin-top: 1px;
+        opacity: 0.8;
+        float: right;
       }
 
       .header h1 {
@@ -788,10 +799,13 @@
             var div = createElement('div', 'event');
             var square = createElement('div', 'event-category ' + ev.color);
             var span = createElement('span', 'bold', ev.eventName);
+            var icon = createElement('i', 'material-icons', ev.attachment);
+            icon.classList.add('attachment');
             var details = createElement('div', 'offset', ev.eventDetails + ' | ' + ev.readings);
-
+            
             div.appendChild(square);
             div.appendChild(span);
+            div.appendChild(icon);
             div.appendChild(details);
             wrapper.appendChild(div);
           });
@@ -877,7 +891,8 @@
             color: 'blue',
             eventTime: moment("2022-11-15"),
             eventDetails: '10:45-12:30 (Lakens)',
-            readings: 'Readings: Chapter 1'
+            readings: 'Readings: Chapter 1',
+            attachment: 'hearing'
           },
           {
             eventName: 'Lecture: Design & Evaluation Methods',
@@ -885,57 +900,64 @@
             color: 'blue',
             eventTime: moment("2022-11-18"),
             eventDetails: '13:30-15:15 (Perugia)',
-            readings: 'Chapter 2 & 3 (up to 3.2.4)'
+            readings: 'Chapter 2 & 3 (up to 3.2.4)',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Cognition & Decision Making',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-11-22"),
             eventDetails: '10:45-12:30 (Lakens)',
-            readings: 'Chapter 6 & 7'
+            readings: 'Chapter 6 & 7',
+            attachment: 'hearing'
           }, {
             eventName: 'Q&A Assignment 1',
             calendar: 'Q&A',
             color: 'yellow',
             eventTime: moment("2022-11-25"),
             eventDetails: '13:30-15:15 (Cristia)',
-            readings: ''
-
+            readings: '',
+            attachment: 'description'
           }, {
             eventName: 'Lecture: Displays',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-11-29"),
             eventDetails: '10:45-12:30 (Lakens)',
-            readings: 'Chapter 8'
+            readings: 'Chapter 8',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Affective Interaction',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-02"),
             eventDetails: '13:30-15:15 (Perugia)',
-            readings: 'Lottridge, 2011'
+            readings: 'Lottridge, 2011',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Control and Automation',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-06"),
             eventDetails: '10:45-12:30 (Lakens)',
-            readings: 'Chapter 9 & 11'
+            readings: 'Chapter 9 & 11',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Human-Computer Interaction',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-09"),
             eventDetails: '13:30-15:15 (Perugia)',
-            readings: 'Chapter 10'
+            readings: 'Chapter 10',
+            attachment: 'hearing'
           }, {
             eventName: 'Feedback Assignment 1 & Introduction Assignment 2',
             calendar: 'Q&A',
             color: 'yellow',
             eventTime: moment("2022-12-13"),
             eventDetails: '10:45-12:30 (Cristea)',
-            readings: ''
+            readings: '',
+            attachment: 'description'
           },
           {
             eventName: 'Lecture: Stress and Workload',
@@ -943,57 +965,98 @@
             color: 'blue',
             eventTime: moment("2022-12-16"),
             eventDetails: '13:30-15:15 (Lakens)',
-            readings: 'Chapter 15'
+            readings: 'Chapter 15',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Safety, Accidents, and Errors',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2022-12-20"),
             eventDetails: '10:45-12:30 (Lakens)',
-            readings: 'Chapter 16'
+            readings: 'Chapter 16',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Social Robotics & Ethics',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2023-01-10"),
             eventDetails: '10:45-12:30 (Perugia)',
-            readings: 'Readings: See Schedule'
+            readings: 'Readings: See Schedule',
+            attachment: 'hearing'
           }, {
             eventName: 'Lecture: Universal & Inclusive Design',
             calendar: 'Lecture',
             color: 'blue',
             eventTime: moment("2023-01-13"),
             eventDetails: '13:30-15:15 (Perugia)',
-            readings: 'Readings: See Schedule'
+            readings: 'Readings: See Schedule',
+            attachment: 'hearing'
           }, {
             eventName: 'Work on Video Pitch in Small Groups',
             calendar: 'Group-Work',
             color: 'green',
             eventTime: moment("2023-01-17"),
             eventDetails: '',
-            readings: ''
+            readings: '',
+            attachment: 'mode_edit'
           }, {
             eventName: 'Deadline Video Pitch Business Proposals',
             calendar: 'Deadlines',
             color: 'orange',
             eventTime: moment("2023-01-23"),
             eventDetails: '',
-            readings: ''
+            readings: '',
+            attachment: 'description'
+          },{
+            eventName: 'Hand in Assignment 1.2',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2022-12-11"),
+            eventDetails: 'Due at 23:59',
+            readings: '30 Pts',
+            attachment: 'description'
+          },{
+            eventName: 'Hand in Assignment 2.1',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2023-01-11"),
+            eventDetails: 'Due at 23:59',
+            readings: '115 Pts',
+            attachment: 'description'
+          },{
+            eventName: 'Video Pitch Assignment 2.2',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2023-01-20"),
+            eventDetails: 'Due at 23:59',
+            readings: '40 Pts',
+            attachment: 'description'
+          },{
+            eventName: 'Hand in Assignment 1.1',
+            calendar: 'Deadlines',
+            color: 'orange',
+            eventTime: moment("2022-11-20"),
+            eventDetails: 'Due at 23:59',
+            readings: '30 Pts (each)',
+            attachment: 'description'
           }, {
             eventName: 'Final Exam',
             calendar: 'Exams',
             color: 'red',
             eventTime: moment("2023-02-01"),
             eventDetails: '',
-            readings: ''
+            readings: '',
+            attachment: 'mode_edit'
+
           }, {
             eventName: 'Resit Final Exam',
             calendar: 'Exams',
             color: 'red',
             eventTime: moment("2023-04-14"),
             eventDetails: '',
-            readings: ''
-          },
+            readings: '',
+            attachment: 'mode_edit'
+          }
         ];
 
 
